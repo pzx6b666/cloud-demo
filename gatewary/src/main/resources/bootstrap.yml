@@ -1,0 +1,64 @@
+# Tomcat
+server:
+  port: 8081
+
+# Spring
+spring:
+  application:
+    # 应用名称
+    name: gateway
+  profiles:
+    # 环境配置
+    active: dev
+  main:
+    allow-circular-references: true
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        # 服务注册地址
+        server-addr: 127.0.0.1:8850
+        username: nacos
+        password: nacos
+      config:
+        # 配置中心地址
+        server-addr: 127.0.0.1:8850
+        username: nacos
+        password: nacos
+        # 配置文件格式
+        file-extension: yml
+    sentinel:
+      # 取消控制台懒加载
+      eager: true
+      transport:
+        # 控制台地址
+        dashboard: 127.0.0.1:8718
+      # nacos配置持久化
+      datasource:
+        ds1:
+          nacos:
+            server-addr: 127.0.0.1:8848
+            dataId: sentinel-outpost-gateway
+            groupId: DEFAULT_GROUP
+            data-type: json
+            rule-type: flow
+#    gateway:
+#      discovery:
+#        locator:
+#          lowerCaseServiceId: true
+#          enabled: true
+#      routes:
+#        # 认证中心
+#        - id: order-service
+#          uri: lb://order-service
+#          predicates:
+#            - Path=/order/**
+#          filters:
+#            - StripPrefix=1
+#        # 代码生成
+#        - id: user-service
+#          uri: lb://user-service
+#          predicates:
+#            - Path=/users/**
+#          filters:
+#            - StripPrefix=1
