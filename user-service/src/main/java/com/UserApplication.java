@@ -12,7 +12,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableDiscoveryClient
 @MapperScan(value = "com.dao")
 public class UserApplication {
-
+//111
     public static void main(String[] args)
     {
         SpringApplication.run(UserApplication.class, args);
