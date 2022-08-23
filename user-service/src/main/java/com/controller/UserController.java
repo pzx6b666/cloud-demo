@@ -1,7 +1,6 @@
 package com.controller;
 
 import com.RemoteSyncService;
-import com.configuration.Student;
 import com.controller.model.User;
 import com.service.UserService;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,15 +11,13 @@ import javax.annotation.Resource;
 @RequestMapping(value ="/user")
 @RestController
 public class UserController {
-
+   //22222
     @Resource
     private RemoteSyncService remoteSyncService;
 
     @Value("${name}")
     private String name;
 
-    @Resource
-    private Student student;
 
     @Resource
     private UserService userService;
