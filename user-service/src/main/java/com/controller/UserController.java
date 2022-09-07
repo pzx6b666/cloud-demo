@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 @RequestMapping(value ="/user")
 @RestController
 public class UserController {
-   //abc自99999zzzz
+   //abc123zzz
     @Resource
     private RemoteSyncService remoteSyncService;
 
